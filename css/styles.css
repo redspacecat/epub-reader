@@ -1,0 +1,63 @@
+body {
+    font-family: Arial;
+    /* background-color: gray; */
+    margin: 0px;
+}
+
+#reader {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: top;
+}
+
+/* #toc {
+    width: 20%;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+    overflow-y: auto;
+} */
+
+#content {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    /* overflow-y: scroll; */
+}
+#content::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+#content {
+    width: calc(400px);
+    height: calc(100vh - 20px);
+    padding: 10px;
+    margin: 0px;
+    font-size: 20px;
+    line-height: normal;
+    background-color: black;
+    color: white;
+    /* position: fixed; */
+    overflow: scroll;
+    /* position: fixed; */
+    /* vertical-align: baseline-shift 50px; */
+    /* margin-top: -50px; */
+    /* top: -100px; */
+    /* display: table-cell; */
+    /* scroll-margin-top: 100px; */
+}
+
+/* img { */
+    /* height: auto;  */
+    /* width: auto;  */
+    /* max-height: 10px;  */
+    /* max-height: 300px; */
+/* } */
+
+.ChapTitleNonprintingctnp, .Nonprinting{
+    display: none;
+}
+
+.switch-page {
+    height: 100vh;
+    width: 2%;
+}
