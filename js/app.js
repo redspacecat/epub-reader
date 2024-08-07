@@ -52,13 +52,13 @@ function handleFileSelect(event) {
     }
     catch {
     }
-    toggle_fullscreen()
     const file = event.target.files[0];
     if (file) {
         const reader = new FileReader();
         reader.onload = function(e) {
             const arrayBuffer = e.target.result;
             parseEPUB(arrayBuffer);
+            toggle_fullscreen()
         };
         reader.readAsArrayBuffer(file);
     }
@@ -308,10 +308,10 @@ function changePage(change) {
 function toggle_fullscreen() {
     if (!document.fullscreenElement) {
         document.body.requestFullscreen();
-        document.body.setAttribute("fullscreen",""); 
+        // document.body.setAttribute("fullscreen",""); 
     } else {
         document.exitFullscreen();
-        document.body.removeAttribute("fullscreen"); 
+        // document.body.removeAttribute("fullscreen"); 
     }
 }
 
