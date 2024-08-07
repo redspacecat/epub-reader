@@ -52,6 +52,7 @@ function handleFileSelect(event) {
     }
     catch {
     }
+    toggle_fullscreen()
     const file = event.target.files[0];
     if (file) {
         const reader = new FileReader();
@@ -301,6 +302,16 @@ function changePage(change) {
                 isScrollFinished()
             }
         }
+    }
+}
+
+function toggle_fullscreen() {
+    if (!document.fullscreenElement) {
+        document.body.requestFullscreen();
+        document.body.setAttribute("fullscreen",""); 
+    } else {
+        document.exitFullscreen();
+        document.body.removeAttribute("fullscreen"); 
     }
 }
 
