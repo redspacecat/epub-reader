@@ -318,8 +318,8 @@ function toggle_fullscreen() {
         document.body.requestFullscreen();
         // document.body.setAttribute("fullscreen",""); 
     } else {
-        // document.exitFullscreen();
-        // document.body.removeAttribute("fullscreen"); 
+        document.exitFullscreen();
+        document.body.removeAttribute("fullscreen"); 
     }
 }
 
@@ -353,7 +353,7 @@ function handleVisibilityChange() {
     if (document.hidden) {
         console.log("document hidden")
     } else {
-        toggle_fullscreen()
+        // toggle_fullscreen()
     }
 }
 
