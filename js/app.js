@@ -318,7 +318,7 @@ function toggle_fullscreen() {
         document.body.requestFullscreen();
         // document.body.setAttribute("fullscreen",""); 
     } else {
-        document.exitFullscreen();
+        // document.exitFullscreen();
         // document.body.removeAttribute("fullscreen"); 
     }
 }
@@ -361,16 +361,15 @@ function handleMousePress(event) {
     let width = document.getElementsByTagName("body")[0].offsetWidth
     let clickX = event.clientX
     let clickY = event.clientY
+    toggle_fullscreen()
     if (ereader.settingsVisible) {
         $("#dialog").dialog("close")
         ereader.settingsVisible = false
     } else {
         if (clickX < width * (1/3)) {
-            toggle_fullscreen()
             changePage(-1)
         } else {
             if (clickX > width * (2/3)) {
-                toggle_fullscreen()
                 changePage(1)
             } else {
                 showSettings()
