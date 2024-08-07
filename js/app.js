@@ -158,7 +158,12 @@ async function loadContent(page) {
             if (elements[i].attributes.href.value.includes("#")) {
                 elements[i].attributes.href.value = elements[i].attributes.href.value.slice(0, elements[i].attributes.href.value.indexOf("#"))
             }
-            let num = getPageNumberFromID(searchManifestByHref(elements[i].attributes.href.value))
+            let id = searchManifestByHref(elements[i].attributes.href.value)
+            // if (id == undefined) {
+            //     id = searchManifestByHref("xhtml/" + elements[i].attributes.href.value)
+            // }
+            console.log(id, elements[i].attributes.href.value)
+            let num = getPageNumberFromID(id)
             if (!(num == undefined)) {
                 elements[i].href = `javascript:loadContent(${num})`
             }
@@ -198,7 +203,7 @@ function searchManifest(id) {
 function searchManifestByHref(name) {
     for (let i = 0; i < ereader.data.manifest.children.length; i++) {
         let testName = ereader.data.manifest.children[i].attributes
-        if (testName.href.value == name) {
+        if (testName.href.value.includes(name)) {
             return testName.id.value
         }
     }
