@@ -61,7 +61,7 @@ function handleFileSelect(event) {
         reader.onload = function(e) {
             const arrayBuffer = e.target.result;
             parseEPUB(arrayBuffer);
-            toggle_fullscreen()
+            // toggle_fullscreen()
         };
         reader.readAsArrayBuffer(file);
     }
@@ -353,7 +353,7 @@ function handleVisibilityChange() {
     if (document.hidden) {
         console.log("document hidden")
     } else {
-        // toggle_fullscreen()
+        toggle_fullscreen()
     }
 }
 
