@@ -10,6 +10,8 @@ window.mobileCheck = function() {
 };
 
 document.getElementById("content").addEventListener("scroll", updateScroll)
+document.getElementById("content").addEventListener("click", showSettings)
+document.addEventListener("visibilitychange", handleVisibilityChange);
 
 let slider = document.getElementById("font-size-slider")
 slider.onchange = handleFontSize
@@ -315,14 +317,17 @@ function toggle_fullscreen() {
         document.body.requestFullscreen();
         // document.body.setAttribute("fullscreen",""); 
     } else {
-        document.exitFullscreen();
+        // document.exitFullscreen();
         // document.body.removeAttribute("fullscreen"); 
     }
 }
 
-if (mobileCheck() == true) {
+ereader.isMobile = mobileCheck()
+if (ereader.isMobile) {
     handleMobile()
 }
+
+$("#dialog").dialog({autoOpen: false});
 
 function handleMobile() {
     document.getElementById("settings").remove()
@@ -335,4 +340,18 @@ function handleMobile() {
     document.getElementById("content").style.height = "calc((100vh - 20px) - 4vh)"
     document.getElementById("content-parent").appendChild(document.getElementById("l"))
     document.getElementById("content-parent").appendChild(document.getElementById("r"))
+}
+
+function showSettings() {
+    if (ereader.isMobile) {
+        $("#dialog").dialog("open");
+    }
+}
+
+function handleVisibilityChange() {
+    if (document.hidden) {
+        console.log("document hidden")
+    } else {
+        toggle_fullscreen()
+    }
 }
