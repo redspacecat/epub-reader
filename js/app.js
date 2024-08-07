@@ -61,7 +61,7 @@ function handleFileSelect(event) {
         reader.onload = function(e) {
             const arrayBuffer = e.target.result;
             parseEPUB(arrayBuffer);
-            // toggle_fullscreen()
+            toggle_fullscreen()
         };
         reader.readAsArrayBuffer(file);
     }
@@ -319,7 +319,7 @@ function toggle_fullscreen() {
         // document.body.setAttribute("fullscreen",""); 
     } else {
         document.exitFullscreen();
-        document.body.removeAttribute("fullscreen"); 
+        // document.body.removeAttribute("fullscreen"); 
     }
 }
 
@@ -350,11 +350,11 @@ function showSettings() {
 }
 
 function handleVisibilityChange() {
-    if (document.hidden) {
-        console.log("document hidden")
-    } else {
-        toggle_fullscreen()
-    }
+    // if (document.hidden) {
+    //     console.log("document hidden")
+    // } else {
+    //     toggle_fullscreen()
+    // }
 }
 
 function handleMousePress(event) {
@@ -366,9 +366,11 @@ function handleMousePress(event) {
         ereader.settingsVisible = false
     } else {
         if (clickX < width * (1/3)) {
+            toggle_fullscreen()
             changePage(-1)
         } else {
             if (clickX > width * (2/3)) {
+                toggle_fullscreen()
                 changePage(1)
             } else {
                 showSettings()
